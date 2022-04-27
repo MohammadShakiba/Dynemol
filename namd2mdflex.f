@@ -12,6 +12,7 @@ use MM_tuning_routines     , only : SpecialBonds, SpecialAngs
 use NonBondPairs           , only : Identify_NonBondPairs
 use Babel_routines_m       , only : TO_UPPER_CASE
 use gmx2mdflex             , only : SpecialPairs , SpecialPairs14
+use setup_checklist        , only : Checking_Topology
 
 public :: prm2mdflex, psf2mdflex, convert_NAMD_velocities, SpecialPairs, SpecialPairs14
 
@@ -35,6 +36,7 @@ type(MM_atomic)     , intent(inout) :: atom(:)
 type(MM_atomic)     , intent(inout) :: FF(:)
 type(MM_molecular)  , intent(inout) :: species(:)
 
+
 ! local variables ...
 character(15)   , allocatable   :: InputChars(:,:)
 real*8          , allocatable   :: InputReals(:,:)
@@ -45,6 +47,7 @@ character(10)                   :: string
 character(200)                  :: line 
 integer                         :: i , j , k , a , n , ioerr , counter , N_of_atoms
 integer                         :: Nbonds , Nangs , Ndiheds , Nimpropers 
+logical                         :: TorF
 
 allocate( InputChars    ( 20000 , 10 )                   )
 allocate( InputReals    ( 20000 , 10 ) , source = D_zero )
