@@ -22,6 +22,8 @@
     use Allocation_m                , only : Allocate_Structures
     use Semi_Empirical_Parms        , only : atom ,                     &
                                              Include_OPT_parameters
+    use MPI_definitions_m           , only : master
+
 
     type(structure)                 , public  :: Unit_Cell , Extended_Cell 
     type(STO_basis) , allocatable   , public  :: ExCell_basis(:)
