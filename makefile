@@ -3,7 +3,7 @@
 .SUFFIXES: .f .F .for .cpp .F90 .cu .o 
 
 #FC=ifort -xHost -ip -fpp
-FC = mpif90 -xHost -ip -fpp
+FC = mpiifort -xHost -ip -fpp
 FREE = -free
 
 # use this flag for debugging and coding up
